@@ -7,12 +7,14 @@
 //
 
 #import "FirstViewController.h"
+#import "Energy_Step2_Comp_Type_view.h"
 
 @interface FirstViewController ()
 
 @end
 
 @implementation FirstViewController
+@synthesize typeView;
 
 - (void)viewDidLoad
 {
@@ -24,6 +26,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)energyButtonPressed:(id)sender;
+{
+//    typeView = [[Energy_Step2_Comp_Type_view alloc] initWithNibName:@"Energy_Step2_Comp_Type_view" bundle:nil];
+    
+    typeView = [[Energy_Step2_Comp_Type_view alloc] initWithNibName:@"Energy_Step2_Comp_Type_view" bundle:nil delegate:self];    
+    [self.view addSubview:typeView.view];
+
+ 
 }
 
 @end
