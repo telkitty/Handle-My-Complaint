@@ -8,9 +8,10 @@
 
 #import "Energy_Step2a_Billing_Account_View.h"
 
+/*
 @interface Energy_Step2a_Billing_Account_View ()
-
 @end
+*/
 
 @implementation Energy_Step2a_Billing_Account_View
 
@@ -19,6 +20,18 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id)aDelegate {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        
+        //        delegate = aDelegate;
+        
     }
     return self;
 }
@@ -33,6 +46,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)backButtonPressed:(id)sender
+{
+    [self.view removeFromSuperview];
 }
 
 @end

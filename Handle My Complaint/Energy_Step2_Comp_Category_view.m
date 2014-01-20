@@ -8,6 +8,7 @@
 
 #import "Energy_Step2_Comp_Category_view.h"
 #import "Energy_Step2a_Billing_Account_View.h"
+#import "Energy_Step2b_Conn_Disconn.h"
 
 @interface Energy_Step2_Comp_Category_view ()
 //@interface Energy_Step2_Comp_Category_view ()
@@ -19,12 +20,11 @@
 @synthesize complaintCategory;
 @synthesize selected;
 
-const NSInteger DESCRIPTION_LABEL_TAG = 10000;
-const NSInteger IMAGE_TAG = 10001;
+const NSInteger CAT_DESCRIPTION_LABEL_TAG = 10000;
+const NSInteger CAT_IMAGE_TAG = 10001;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
@@ -63,23 +63,6 @@ const NSInteger IMAGE_TAG = 10001;
     return self;
 }
 
-/*
- //To store it
- [selected addObject:[NSNumber numberWithInteger:5]];
- 
- //To turn is back when reading it
- int sum = [[selected objectAtIndex:0] intValue]
- 
- 
- for(id item in items) {
- if([item isEqual:itemToDelete]) {
- [items removeObject:item];
- break;
- }
- }
- 
-
- */
 
 - (void)viewDidLoad
 {
@@ -97,14 +80,31 @@ const NSInteger IMAGE_TAG = 10001;
 
 -(IBAction)nextButtonPressed:(id)sender;
 {
-    /*
-     switch (value)
+    int choice = [[selected objectAtIndex:0] intValue];
+    if(choice == 0)
+    {
+        Energy_Step2a_Billing_Account_View *billAccountView = [[Energy_Step2a_Billing_Account_View alloc] initWithNibName:@"Energy_Step2a_Billing_Account_View" bundle:nil];
+        [self.view addSubview:billAccountView.view];
+    }
+    
+    else if(choice == 1)
+    {
+        Energy_Step2b_Conn_Disconn *connDisconnView = [[Energy_Step2b_Conn_Disconn alloc] initWithNibName:@"Energy_Step2b_Conn_Disconn" bundle:nil];
+        [self.view addSubview:connDisconnView.view];
+    }
+    
+/*
+     switch (choice)
      {
      case 0:
-     NSLog (@"zero");
+     Energy_Step2a_Billing_Account_View *billAccountView = [[Energy_Step2a_Billing_Account_View alloc] initWithNibName:@"Energy_Step2a_Billing_Account_View" bundle:nil];
+     [self.view addSubview:billAccountView.view];
      break;
      case 1:
-     NSLog (@"one");
+    Energy_Step2b_Conn_Disconn *connDisconnView = [[Energy_Step2b_Conn_Disconn alloc] initWithNibName:@"Energy_Step2b_Conn_Disconn" bundle:nil];
+    [self.view addSubview:connDisconnView.view];
+
+             
      break;
      case 2:
      NSLog (@"two");
@@ -122,11 +122,8 @@ const NSInteger IMAGE_TAG = 10001;
      NSLog (@"Integer out of range");
      break;
      }
-     */
-    
-    Energy_Step2a_Billing_Account_View *billAccountView = [[Energy_Step2a_Billing_Account_View alloc] initWithNibName:@"Energy_Step2a_Billing_Account_View" bundle:nil];
-    [self.view addSubview:billAccountView.view];
-    
+*/
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfSectionsInTableView:(UITableView *)tView
@@ -141,10 +138,7 @@ const NSInteger IMAGE_TAG = 10001;
 
 - (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-/*
-    const NSInteger DESCRIPTION_LABEL_TAG = 10000;
-    const NSInteger IMAGE_TAG = 10001;
-*/
+
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     
@@ -158,13 +152,13 @@ const NSInteger IMAGE_TAG = 10001;
     
     NSString *description = [complaintCategory objectAtIndex: row];
     descriptionLabel.text = description;
-    descriptionLabel.tag = DESCRIPTION_LABEL_TAG;
+    descriptionLabel.tag = CAT_DESCRIPTION_LABEL_TAG;
     [cell.contentView addSubview:descriptionLabel];
     
     descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
 
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(250, 5, 25, 25)];
-    imageView.tag=IMAGE_TAG;
+    imageView.tag=CAT_IMAGE_TAG;
     UIImage *image = [UIImage imageNamed:@"Check-icon.png"];
     [imageView setImage:image];
     [cell.contentView addSubview:imageView];
@@ -197,17 +191,17 @@ const NSInteger IMAGE_TAG = 10001;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:IMAGE_TAG];
+    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:CAT_IMAGE_TAG];
     
     if(imageView.hidden == YES)
     {
-        [selected addObject:[NSNumber numberWithInteger:indexPath]];
+        [selected addObject:[NSNumber numberWithInteger:indexPath.row]];
         [imageView setHidden:NO];
     }
     else
     {
         [imageView setHidden:YES];
-        [selected removeObject:[NSNumber numberWithInteger:indexPath]];
+        [selected removeObject:[NSNumber numberWithInteger:indexPath.row]];
     }
 }
 

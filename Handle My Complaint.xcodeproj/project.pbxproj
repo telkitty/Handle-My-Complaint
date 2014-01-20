@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D678F2A187F93D7009DAB73 /* Check-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D678F29187F93D7009DAB73 /* Check-icon.png */; };
 		7D7BB24C187CEF1000945240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7BB24B187CEF1000945240 /* Foundation.framework */; };
 		7D7BB24E187CEF1000945240 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7BB24D187CEF1000945240 /* CoreGraphics.framework */; };
 		7D7BB250187CEF1000945240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7BB24F187CEF1000945240 /* UIKit.framework */; };
@@ -22,6 +23,12 @@
 		7D7BB270187CEF1000945240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7BB24F187CEF1000945240 /* UIKit.framework */; };
 		7D7BB278187CEF1000945240 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D7BB276187CEF1000945240 /* InfoPlist.strings */; };
 		7D7BB27A187CEF1000945240 /* Handle_My_ComplaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BB279187CEF1000945240 /* Handle_My_ComplaintTests.m */; };
+		7DCC4576187E527100A2985A /* Energy_Step2a_Billing_Account_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC4574187E527100A2985A /* Energy_Step2a_Billing_Account_View.m */; };
+		7DCC4577187E527100A2985A /* Energy_Step2a_Billing_Account_View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DCC4575187E527100A2985A /* Energy_Step2a_Billing_Account_View.xib */; };
+		7DCC4580187E64C000A2985A /* Energy_Step2_Comp_Category_view.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC457E187E64C000A2985A /* Energy_Step2_Comp_Category_view.m */; };
+		7DCC4581187E64C000A2985A /* Energy_Step2_Comp_Category_view.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DCC457F187E64C000A2985A /* Energy_Step2_Comp_Category_view.xib */; };
+		7DD27F0C18851662002AA5AA /* Energy_Step2b_Conn_Disconn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD27F0A18851662002AA5AA /* Energy_Step2b_Conn_Disconn.m */; };
+		7DD27F0D18851662002AA5AA /* Energy_Step2b_Conn_Disconn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD27F0B18851662002AA5AA /* Energy_Step2b_Conn_Disconn.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D678F29187F93D7009DAB73 /* Check-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check-icon.png"; sourceTree = "<group>"; };
 		7D7BB248187CEF1000945240 /* Handle My Complaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Handle My Complaint.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7BB24B187CEF1000945240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D7BB24D187CEF1000945240 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +64,15 @@
 		7D7BB275187CEF1000945240 /* Handle My ComplaintTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Handle My ComplaintTests-Info.plist"; sourceTree = "<group>"; };
 		7D7BB277187CEF1000945240 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D7BB279187CEF1000945240 /* Handle_My_ComplaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Handle_My_ComplaintTests.m; sourceTree = "<group>"; };
+		7DCC4573187E527100A2985A /* Energy_Step2a_Billing_Account_View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Energy_Step2a_Billing_Account_View.h; path = ../Energy_Step2a_Billing_Account_View.h; sourceTree = "<group>"; };
+		7DCC4574187E527100A2985A /* Energy_Step2a_Billing_Account_View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Energy_Step2a_Billing_Account_View.m; path = ../Energy_Step2a_Billing_Account_View.m; sourceTree = "<group>"; };
+		7DCC4575187E527100A2985A /* Energy_Step2a_Billing_Account_View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Energy_Step2a_Billing_Account_View.xib; path = ../Energy_Step2a_Billing_Account_View.xib; sourceTree = "<group>"; };
+		7DCC457D187E64C000A2985A /* Energy_Step2_Comp_Category_view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energy_Step2_Comp_Category_view.h; sourceTree = "<group>"; };
+		7DCC457E187E64C000A2985A /* Energy_Step2_Comp_Category_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energy_Step2_Comp_Category_view.m; sourceTree = "<group>"; };
+		7DCC457F187E64C000A2985A /* Energy_Step2_Comp_Category_view.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Energy_Step2_Comp_Category_view.xib; sourceTree = "<group>"; };
+		7DD27F0918851662002AA5AA /* Energy_Step2b_Conn_Disconn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energy_Step2b_Conn_Disconn.h; sourceTree = "<group>"; };
+		7DD27F0A18851662002AA5AA /* Energy_Step2b_Conn_Disconn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energy_Step2b_Conn_Disconn.m; sourceTree = "<group>"; };
+		7DD27F0B18851662002AA5AA /* Energy_Step2b_Conn_Disconn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Energy_Step2b_Conn_Disconn.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +132,15 @@
 		7D7BB251187CEF1000945240 /* Handle My Complaint */ = {
 			isa = PBXGroup;
 			children = (
+				7DD27F0918851662002AA5AA /* Energy_Step2b_Conn_Disconn.h */,
+				7DD27F0A18851662002AA5AA /* Energy_Step2b_Conn_Disconn.m */,
+				7DD27F0B18851662002AA5AA /* Energy_Step2b_Conn_Disconn.xib */,
+				7DCC457D187E64C000A2985A /* Energy_Step2_Comp_Category_view.h */,
+				7DCC457E187E64C000A2985A /* Energy_Step2_Comp_Category_view.m */,
+				7DCC457F187E64C000A2985A /* Energy_Step2_Comp_Category_view.xib */,
+				7DCC4573187E527100A2985A /* Energy_Step2a_Billing_Account_View.h */,
+				7DCC4574187E527100A2985A /* Energy_Step2a_Billing_Account_View.m */,
+				7DCC4575187E527100A2985A /* Energy_Step2a_Billing_Account_View.xib */,
 				7D7BB25A187CEF1000945240 /* AppDelegate.h */,
 				7D7BB25B187CEF1000945240 /* AppDelegate.m */,
 				7D7BB25D187CEF1000945240 /* Main.storyboard */,
@@ -131,6 +157,7 @@
 		7D7BB252187CEF1000945240 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7D678F29187F93D7009DAB73 /* Check-icon.png */,
 				7D7BB253187CEF1000945240 /* Handle My Complaint-Info.plist */,
 				7D7BB254187CEF1000945240 /* InfoPlist.strings */,
 				7D7BB257187CEF1000945240 /* main.m */,
@@ -234,7 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D7BB267187CEF1000945240 /* Images.xcassets in Resources */,
+				7D678F2A187F93D7009DAB73 /* Check-icon.png in Resources */,
+				7DCC4581187E64C000A2985A /* Energy_Step2_Comp_Category_view.xib in Resources */,
 				7D7BB256187CEF1000945240 /* InfoPlist.strings in Resources */,
+				7DCC4577187E527100A2985A /* Energy_Step2a_Billing_Account_View.xib in Resources */,
+				7DD27F0D18851662002AA5AA /* Energy_Step2b_Conn_Disconn.xib in Resources */,
 				7D7BB25F187CEF1000945240 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +287,10 @@
 			files = (
 				7D7BB265187CEF1000945240 /* SecondViewController.m in Sources */,
 				7D7BB25C187CEF1000945240 /* AppDelegate.m in Sources */,
+				7DCC4576187E527100A2985A /* Energy_Step2a_Billing_Account_View.m in Sources */,
 				7D7BB262187CEF1000945240 /* FirstViewController.m in Sources */,
+				7DD27F0C18851662002AA5AA /* Energy_Step2b_Conn_Disconn.m in Sources */,
+				7DCC4580187E64C000A2985A /* Energy_Step2_Comp_Category_view.m in Sources */,
 				7D7BB258187CEF1000945240 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +500,7 @@
 				7D7BB27F187CEF1000945240 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D7BB280187CEF1000945240 /* Build configuration list for PBXNativeTarget "Handle My ComplaintTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +509,7 @@
 				7D7BB282187CEF1000945240 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,4 +10,8 @@
 
 @interface Energy_Step2a_Billing_Account_View : UIViewController
 
+
+-(IBAction)backButtonPressed:(id)sender;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id)aDelegate;
+
 @end
