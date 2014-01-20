@@ -7,14 +7,13 @@
 //
 
 #import "FirstViewController.h"
-#import "Energy_Step2_Comp_Type_view.h"
 
 @interface FirstViewController ()
 
 @end
 
 @implementation FirstViewController
-@synthesize typeView;
+@synthesize categoryView;
 
 - (void)viewDidLoad
 {
@@ -32,8 +31,8 @@
 {
 //    typeView = [[Energy_Step2_Comp_Type_view alloc] initWithNibName:@"Energy_Step2_Comp_Type_view" bundle:nil];
     
-    typeView = [[Energy_Step2_Comp_Type_view alloc] initWithNibName:@"Energy_Step2_Comp_Type_view" bundle:nil delegate:self];    
-    [self.view addSubview:typeView.view];
+    categoryView = [[Energy_Step2_Comp_Category_view alloc] initWithNibName:@"Energy_Step2_Comp_Type_view" bundle:nil delegate:self];
+    [self.view addSubview:categoryView.view];
 
  
 }

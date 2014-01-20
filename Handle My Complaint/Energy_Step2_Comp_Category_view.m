@@ -1,21 +1,26 @@
 //
-//  Energy_Step2_Comp_Type_view.m
+//  Energy_Step2_Comp_Category_view.m
 //  Handle My Complaint
 //
 //  Created by Yi Zhang on 9/01/2014.
 //  Copyright (c) 2014 HMC. All rights reserved.
 //
 
-#import "Energy_Step2_Comp_Type_view.h"
+#import "Energy_Step2_Comp_Category_view.h"
 #import "Energy_Step2a_Billing_Account_View.h"
 
-@interface Energy_Step2_Comp_Type_view ()
+@interface Energy_Step2_Comp_Category_view ()
+//@interface Energy_Step2_Comp_Category_view ()
 
 @end
 
-@implementation Energy_Step2_Comp_Type_view
+@implementation Energy_Step2_Comp_Category_view
 @synthesize tableView;
 @synthesize complaintCategory;
+@synthesize selected;
+
+const NSInteger DESCRIPTION_LABEL_TAG = 10000;
+const NSInteger IMAGE_TAG = 10001;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,12 +30,14 @@
         
         complaintCategory = @[@"Issue with Bill or Account",
                               @"Service Connection or Disconnection",
-                              @"Problem with Meter",
                               @"Paying a Bill",
                               @"Sales, Marketing or Door-knocking",
+                              @"Problem with Meter",
                               @"Solar or Green Energy",
                               @"Other"
                               ];
+        
+        selected = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -44,16 +51,35 @@
         
         complaintCategory = @[@"Issue with Bill or Account",
                               @"Service Connection or Disconnection",
-                              @"Problem with Meter",
                               @"Paying a Bill",
                               @"Sales, Marketing or Door-knocking",
+                              @"Problem with Meter",
                               @"Solar or Green Energy",
                               @"Other"
                               ];
         
+    selected = [[NSMutableArray alloc] init];
     }
     return self;
 }
+
+/*
+ //To store it
+ [selected addObject:[NSNumber numberWithInteger:5]];
+ 
+ //To turn is back when reading it
+ int sum = [[selected objectAtIndex:0] intValue]
+ 
+ 
+ for(id item in items) {
+ if([item isEqual:itemToDelete]) {
+ [items removeObject:item];
+ break;
+ }
+ }
+ 
+
+ */
 
 - (void)viewDidLoad
 {
@@ -71,6 +97,33 @@
 
 -(IBAction)nextButtonPressed:(id)sender;
 {
+    /*
+     switch (value)
+     {
+     case 0:
+     NSLog (@"zero");
+     break;
+     case 1:
+     NSLog (@"one");
+     break;
+     case 2:
+     NSLog (@"two");
+     break;
+     case 3:
+     NSLog (@"three");
+     break;
+     case 4:
+     NSLog (@"four");
+     break;
+     case 5:
+     NSLog (@"five");
+     break;
+     default:
+     NSLog (@"Integer out of range");
+     break;
+     }
+     */
+    
     Energy_Step2a_Billing_Account_View *billAccountView = [[Energy_Step2a_Billing_Account_View alloc] initWithNibName:@"Energy_Step2a_Billing_Account_View" bundle:nil];
     [self.view addSubview:billAccountView.view];
     
@@ -88,8 +141,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+/*
     const NSInteger DESCRIPTION_LABEL_TAG = 10000;
-    
+    const NSInteger IMAGE_TAG = 10001;
+*/
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     
@@ -97,6 +152,7 @@
     
     NSUInteger row = [indexPath row];
     UILabel *descriptionLabel;
+    UIImageView *checked;
 
     descriptionLabel =[[UILabel alloc] initWithFrame:CGRectMake(10,5,300,30)];
     
@@ -106,8 +162,15 @@
     [cell.contentView addSubview:descriptionLabel];
     
     descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
-    return cell;
+
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(250, 5, 25, 25)];
+    imageView.tag=IMAGE_TAG;
+    UIImage *image = [UIImage imageNamed:@"Check-icon.png"];
+    [imageView setImage:image];
+    [cell.contentView addSubview:imageView];
+    [imageView setHidden:YES];
     
+    return cell;
 }
 
 
@@ -133,65 +196,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-/*
-    NSUInteger row = [indexPath row];
-    MapAnnotation *currentAnnotation =  [listData objectAtIndex:row];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:IMAGE_TAG];
     
-    if(currentAnnotation.title == @"Current Location" || currentAnnotation.title == @"Specified Location"
-       || currentAnnotation.title == @"Start Location" || currentAnnotation.title == @"End Location")
+    if(imageView.hidden == YES)
     {
-        return;
-    }
-    NSError* errorStr = nil;
-    NSString* subtitle = currentAnnotation.subtitle;
-    NSString *reference = currentAnnotation.reference;
-    NSString *detailString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?reference="];
-    detailString = [detailString stringByAppendingString:reference];
-    detailString = [detailString stringByAppendingString:@"&sensor=true&key="];
-    detailString = [detailString stringByAppendingString:key];
-    
-    NSString* query = [NSString stringWithContentsOfURL:[NSURL URLWithString:detailString] encoding:NSUTF8StringEncoding error:&errorStr];
-    
-    NSData *resultJson = [query dataUsingEncoding:NSUTF8StringEncoding];
-    
-    
-    if( query )
-    {
-        CJSONDeserializer *jsonDeserializer = [CJSONDeserializer deserializer];
-        NSError *error;
-        NSDictionary *resultsDictionary = [jsonDeserializer deserializeAsDictionary:resultJson error:&error];
-        
-        if (resultsDictionary) {
-            NSDictionary* result = [resultsDictionary objectForKey:@"result"];
-            
-            NSString* phone = [result objectForKey:@"international_phone_number"];
-            NSString* web = nil;
-            web = [result objectForKey:@"website"];
-            if(web == nil || web.length == 0)
-                web = [result objectForKey:@"url"];
-            
-            detailView  = [[DetailView alloc] initWithNibName:@"DetailView" bundle:nil delegate:self Annotation:currentAnnotation];
-            
-            detailView.nameStr = currentAnnotation.title;
-            detailView.addressStr = currentAnnotation.subtitle;
-            detailView.phoneStr = phone;
-            
-            NSString *encodedString = [web stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            detailView.websiteStr =[web stringByAddingPercentEscapesUsingEncoding:
-                                    NSUTF8StringEncoding];
-            
-            detailView.shouldAlert = currentAnnotation.shouldAlert;
-            
-        }
+        [selected addObject:[NSNumber numberWithInteger:indexPath]];
+        [imageView setHidden:NO];
     }
     else
     {
-        printf("Error = %s", [errorStr userInfo]);
+        [imageView setHidden:YES];
+        [selected removeObject:[NSNumber numberWithInteger:indexPath]];
     }
-    [self loadDetails];
-    [detailView repositionButtons];
-*/
 }
+
+-(IBAction)backButtonPressed:(id)sender
+{
+    [self.view removeFromSuperview];
+}
+
 
 
 

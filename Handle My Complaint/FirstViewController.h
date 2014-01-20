@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Energy_Step2_Comp_Type_view.h"
+#import "Energy_Step2_Comp_Category_view.h"
 
 @interface FirstViewController : UIViewController
 {
-    Energy_Step2_Comp_Type_view *typeView;
+    Energy_Step2_Comp_Category_view *categoryView;
 }
 
-@property (retain, nonatomic) Energy_Step2_Comp_Type_view *typeView;
+@property (retain, nonatomic) Energy_Step2_Comp_Category_view *categoryView;
 -(IBAction)energyButtonPressed:(id)sender;
 
 @end

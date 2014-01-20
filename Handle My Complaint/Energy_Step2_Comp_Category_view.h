@@ -1,5 +1,5 @@
 //
-//  Energy_Step2_Comp_Type_view.h
+//  Energy_Step2_Comp_Category_view.h
 //  Handle My Complaint
 //
 //  Created by Yi Zhang on 9/01/2014.
@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Energy_Step2_Comp_Type_view : UIViewController
+@interface Energy_Step2_Comp_Category_view : UIViewController
 {
     IBOutlet UITableView *tableView;
     NSArray *complaintCategory;
+    NSMutableArray *selected;
+
 }
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSArray *complaintCategory;
+@property (nonatomic, retain) NSMutableArray *selected;
 
+
+-(IBAction)backButtonPressed:(id)sender;
 -(IBAction)nextButtonPressed:(id)sender;
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil delegate:(id)aDelegate;
 
